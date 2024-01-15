@@ -1,0 +1,9 @@
+{
+    "title": "Surfin Bird Gun",
+    "description": "A Gun that plays Surfin Bird by The Trashmen and shoots birds.",
+    "type": "weapon",
+    "tags": [
+        "fun"
+    ],
+    "ignore": []
+}

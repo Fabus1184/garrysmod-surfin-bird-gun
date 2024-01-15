@@ -1,0 +1,13 @@
+"surfin_bird_gun" {
+	"base" "base"
+	"title" "Surfin Bird Gun"
+	"menusystem" "1"
+	"version" "0.1.0"
+	"author_name" "Fabus1184"
+	"author_email" "fabianlippold1184@gmail.com"
+	"author_url" "https://github.com/Fabus1184"
+	"icon" ""
+	"info" ""
+	"hide" "0"
+	"workshopid"	""
+}
