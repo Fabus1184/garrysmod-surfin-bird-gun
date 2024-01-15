@@ -1,3 +1,7 @@
+if SERVER then
+    resource.AddFile("materials/icon_surfin_bird_gun.png")
+end
+
 ENT.Type = "anim"
 ENT.Base = "base_anim"
 

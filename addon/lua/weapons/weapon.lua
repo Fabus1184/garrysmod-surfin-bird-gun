@@ -7,9 +7,17 @@ SWEP.Category = "BIRD BIRD BIRD, B-BIRD'S THE WORD!"
 SWEP.Spawnable = true
 SWEP.AdminOnly = false
 
-SWEP.Base = "weapon_base"
+SWEP.Base = "weapon_tttbase"
 SWEP.Icon = "icon_surfin_bird_gun"
+
+-- TTT
 SWEP.CanBuy = {ROLE_TRAITOR}
+SWEP.LimitedStock = true
+SWEP.EquipMenuData = {
+    type = "item_weapon",
+    desc = "BIRD BIRD BIRD, B-BIRD'S THE WORD!"
+}
+SWEP.Kind = WEAPON_EQUIP1
 
 SWEP.Primary.Damage = 10
 SWEP.Primary.TakeAmmo = 1
@@ -28,7 +36,7 @@ SWEP.Secondary.DefaultClip = -1
 SWEP.Secondary.Automatic = false
 SWEP.Secondary.Ammo	= "none"
 
-SWEP.Slot = 1
+SWEP.Slot = 6
 SWEP.SlotPos = 1
 SWEP.DrawCrosshair = true
 SWEP.DrawAmmo = true
@@ -74,6 +82,10 @@ function SWEP:PrimaryAttack()
         self:EmitSound(SurfinBird, 500)
 
         self:SetNextPrimaryFire(CurTime() + 3)
+        return
+    end
+
+    if CLIENT then
         return
     end
     
