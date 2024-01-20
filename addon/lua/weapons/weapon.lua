@@ -8,7 +8,7 @@ SWEP.Spawnable = true
 SWEP.AdminOnly = false
 
 SWEP.Base = "weapon_tttbase"
-SWEP.Icon = "icon_surfin_bird_gun"
+SWEP.Icon = "icon.png"
 
 -- TTT
 SWEP.CanBuy = {ROLE_TRAITOR}
@@ -54,13 +54,14 @@ SWEP.FiresUnderwater = false
 SWEP.CSMuzzleFlashes = true
 
 local SurfinBird = "surfinbird.wav"
+local Playing = false
 
 function SWEP:Initialize()
     util.PrecacheSound(SurfinBird)
     self:SetWeaponHoldType(self.HoldType)
+    Playing = false
 end
 
-local Playing = false
 
 function SWEP:Holster()
     if Playing then
@@ -73,6 +74,8 @@ end
 
 function SWEP:PrimaryAttack()
     if not self:CanPrimaryAttack() then
+        self:StopSound(SurfinBird)
+        Playing = false
         return
     end
 
@@ -104,6 +107,11 @@ function SWEP:PrimaryAttack()
     self:TakePrimaryAmmo(self.Primary.TakeAmmo) 
 
     self:SetNextPrimaryFire(CurTime() + self.Primary.Delay) 
+
+    if self:Clip1() <= 0 then
+        self:StopSound(SurfinBird)
+        Playing = false
+    end
 end
 
 function SWEP:SecondaryAttack()
